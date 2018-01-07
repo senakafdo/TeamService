@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StatlerWaldorfCorp.TeamService.Models;
-//using StatlerWaldorfCorp.TeamService.Persistence;
+using StatlerWaldorfCorp.TeamService.Persistence;
 
 namespace StatlerWaldorfCorp.TeamService {
     public class Startup
@@ -19,7 +19,7 @@ namespace StatlerWaldorfCorp.TeamService {
         public void ConfigureServices(IServiceCollection services)
         {
 	        services.AddMvc();
-//            services.AddScoped<ITeamRepository, MemoryTeamRepository>();
+            services.AddScoped<ITeamRepository, MemoryTeamRepository>();
         }
 
         public void Configure(IApplicationBuilder app)
