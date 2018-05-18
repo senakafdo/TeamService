@@ -17,5 +17,7 @@ before-deploy:
 - docker build -t senakafdo/teamservice .
 
 deploy:
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push senakafdo/teamservice
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
