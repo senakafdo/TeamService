@@ -15,8 +15,6 @@ script:
 - dotnet restore test/StatlerWaldorfCorp.TeamService.Tests
 - dotnet build test/StatlerWaldorfCorp.TeamService.Tests
 - dotnet test test/StatlerWaldorfCorp.TeamService.Tests
-
-before-deploy:
 - docker build -t senakafdo/teamservice .
 
 deploy:
