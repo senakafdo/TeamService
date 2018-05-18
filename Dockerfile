@@ -2,11 +2,11 @@ FROM microsoft/dotnet:2.0.0-sdk AS build-env
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
-COPY src/*.csproj ./
+COPY src/StatlerWaldorfCorp.TeamService/*.csproj ./
 RUN dotnet restore
 
 # copy everything else and build
-COPY src/. ./
+COPY src/StatlerWaldorfCorp.TeamService/. ./
 RUN dotnet publish
 
 # build runtime image
