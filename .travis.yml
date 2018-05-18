@@ -5,16 +5,22 @@ dotnet: 2.0.0
 
 services:
   - docker
-
-install:
+  
+before_install:
 - dotnet restore src/StatlerWaldorfCorp.TeamService
 
-script:
+install:
 - dotnet build src/StatlerWaldorfCorp.TeamService
 - dotnet publish src/StatlerWaldorfCorp.TeamService -o publish
+
+before_script:
 - dotnet restore test/StatlerWaldorfCorp.TeamService.Tests
 - dotnet build test/StatlerWaldorfCorp.TeamService.Tests
+
+script:
 - dotnet test test/StatlerWaldorfCorp.TeamService.Tests
+
+after_success:
 - docker build -t senakafdo/teamservice .
 
 deploy:
