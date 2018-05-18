@@ -1,0 +1,14 @@
+language: csharp
+dist: trusty
+mono: none
+dotnet: 2.0.0
+
+install:
+- dotnet restore src/StatlerWaldorfCorp.TeamService
+
+script:
+- dotnet build src/StatlerWaldorfCorp.TeamService
+- dotnet publish src/StatlerWaldorfCorp.TeamService -o publish
+- dotnet restore test/StatlerWaldorfCorp.TeamService.Tests
+- dotnet build test/StatlerWaldorfCorp.TeamService.Tests
+- dotnet test test/StatlerWaldorfCorp.TeamService.Tests
